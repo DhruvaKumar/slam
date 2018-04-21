@@ -8,6 +8,7 @@ This project was done as a part of ESE650 Learning in Robotics, University of Pe
 
 More information can be found in the [report](./report/project4.pdf)
 
+#### THOR robot
 ![alt text](./robot.JPG "thor")
 
 ## Results
