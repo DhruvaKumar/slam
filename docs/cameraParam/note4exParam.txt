@@ -1,0 +1,6 @@
+load exParams.mat 
+
+% P_rgb = R*P_depth+T
+%
+% The unit for T should be mm.
+

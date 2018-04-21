@@ -1,0 +1,46 @@
+
+
+slam0_current 	0.12	scan < 0.5
+slam0_current2	0.20 	scan < 0.6
+slam0_current3	0.4 	scan < 0.8	(0.9 =crappy)
+slam0_current4	0.2 	scan < 0.7
+changed log_r = 0.02
+changed update in weights. it was 0.2 & 20*log_r -> 0.02 & 10*log_r
+
+slam0_current5	0.2 	scan < 0.85		resample=0.3 	threshA=30	thresh=30 | 150
+slam0_current6	0.2 	scan < 0.5		resample=0.3 	threshA=30	thresh=30 | 100 | update+10*log_r
+slam0_current7	0.15	scan < 0.5		resample=0.3 	threshA=30	thresh=30 | 100 | update+log_r
+slam0_current7	0.2		scan < 0.75		resample=0.3 	threshA=45	thresh=30 | 100 | update+log_r
+slam0_current7	0.2		scan < 0.5		resample=0.3 	threshA=45	thresh=3 | 100 | update+log_r
+slam0_current8	0.2		scan < 0.5		resample=0.3 	threshA=45	thresh=4 | 100 | update+log_r
+
+--------------------------------------------------------------------------
+slam2_current	0.2 	scan < 0.5
+slam2_current2	0.25	scan < 0.6	well except for few gantry instances
+
+slam2_current4	0.3	scan < 0.3		resample = 0.2 	threshA=55 	thresh=30	| 100 | update+log_r | log_r=0.02 | threshL = 3
+slam2_current5	0.3	scan < 0.3		resample = 0.2 	threshA=30 	thresh=30	| 100 | update+log_r | log_r=0.02 | threshL = 3
+
+--------------------------------------------------------------------------
+slam3_current 	0.20 	scan < 0.6		resmaple = 0.3				thresh=30
+slam3_current2 	0.20 	scan < 0.6		resmaple = 0.3	threshA=60	thresh=30
+changed log_r = 0.02
+changed update in weights. it was 0.2 & 20*log_r -> 0.02 & 10*log_r
+
+slam3_current3 	0.20 	scan < 0.5		resmaple = 0.3	threshA=30	thresh=30
+
+--neglecting scan==0 during weight update and log map update
+
+slam3_current4	0.30	scan < 0.3		resample = 0.2 	threshA=55 	thresh=30	| 100 | update+log_r | log_r=0.02 | threshL = 3
+
+slam3_current5	0.30	scan < 0.3		resample = 0.2 	threshA=30 	thresh=30	| 100 | update+log_r | log_r=0.02 | threshL = 3
+
+slam3_current6	0.30	scan < 0.3		resample = 0.2 	threshA=40 	thresh=30	| 100 | update+log_r | log_r=0.02 | threshL = 3
+
+--------------------------------------------------------------------------
+slam_test_cur	0.30	scan < 0.3		resample = 0.1 	threshA=60 	thresh=30	| 100 | update+log_r | log_r=0.02 | threshL = 4 || drifts off
+slam_test_cur	0.30	scan < 0.1		resample = 0.2 	threshA=45 	thresh=30	| 100 | update+log_r | log_r=0.02 | threshL = 3 || drifts off
+
+--neglecting scan==0 during weight update and log map update
+
+slam_test_cur	0.30	scan < 0.3		resample = 0.2 	threshA=55 	thresh=30	| 100 | update+log_r | log_r=0.02 | threshL = 3

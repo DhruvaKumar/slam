@@ -1,0 +1,55 @@
+
+Kinect Sensor
+http://smeenk.com/kinect-field-of-view-comparison/
+
+DEPTH.depth: millimeter readings
+RGB.jpeg: JPEG of color. Use djpeg to decompress. Channels are swapped. Change in djpeg or via MATLAB.
+
+
+Joint angles
+pos: Matrix of positions
+ts: Array of timestamps
+gyro: Matrix of gyro readings: figure(1);plot(ts(:), gyro(:,3))
+Neck and Head positions are important for projecting the LIDAR readings.
+idx = 1;
+iNeck = get_joint_index('Neck') % head yaw
+iHead = get_joint_index('Head') % head pitch
+figure(2);plot(ts, pos(:, iHead))
+%
+t = ts(idx);
+head_angles = [pos(idx,iNeck), pos(idx,iHead)];
+
+Humanoid properies
+Center of Mass kept at 0.93 meters
+Lidar: 41cm above Center of Mass
+IMU: 16.5cm below Center of Mass
+Head: 39.5cm above Center of Mass (pitch angle is head_angles(2), yaw angle is head_angles(1))
+Kinect: 8.5cm above Head. The sensors for depth and color are offset left and right. Please determine a good calibration for your needs
+-------------NEW------------------
+Head: 33.0cm above Center of Mass
+IMU: 16.0cm below Center of Mass
+Lidar: 15.0cm above head
+Kinect: 7.0cm above Head
+-----------------------------------
+
+Odometry
+lidar{i}.pose: [x, y, theta]
+
++x: forward from robot
++y: left from robot
++z: up fom robot
+theta: rotation around +z
+
+djpeg compilation: requires libjpeg.so (linux) libjpeg.dylib (OSX)
+mex -v -O -I/usr/local/include -L/usr/local/lib djpeg.cc -ljpeg
+
+NOTE: ts for joints is RELATIVE time offset by t0
+lidar.t is Absolute time.
+
+>> lidar{1}.t - t0
+
+ans =
+
+   17.2477
+
+http://www.hokuyo-aut.jp/02sensor/07scanner/download/pdf/UTM-30LX_spec_en.pdf
