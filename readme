@@ -1,8 +1,0 @@
-SLAM!
-
-- The results are in the 'results' directory. Contains:
-	- final map plots
-	- videos 
-		for train set 0,2,3 and test set
-
-- The main script is 'main.m' and its dependencies are in 'src'

@@ -1,7 +1,10 @@
 data/
+docs/
 mex/
 OLD/
 results/videos/
 *test*
 src/
 submission/
+main.m
+notes.md
